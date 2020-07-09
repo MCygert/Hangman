@@ -6,6 +6,18 @@ function getData() {
 }
 
 let fruits = null;
-getData().then((json) => (fruits = console.log(json.map((name) => name.name))));
+getData().then((json) => (fruits = json.map((name) => name.name)));
 // fruits = fruits.map((jsonReponse) => jsonReponse.fruits);
 console.log(fruits);
+
+function createInputBoxes() {
+  let container = document.getElementById("inputBoxes");
+  let randomWord = fruits[Math.floor(Math.random() * fruits.length)];
+  console.log(fruits);
+
+  for (let index = 0; index < randomWord.length; index++) {
+    let input = document.createElement("input");
+    container.appendChild(input);
+  }
+  container.appendChild();
+}
