@@ -7,16 +7,21 @@ function getData() {
 
 let fruits = null;
 getData().then((json) => (fruits = json.map((name) => name.name)));
+
+function renderInputBoxes(randomWord, container) {
+  for (let index = 0; index < randomWord.length; index++) {
+
+    let input = document.createElement("input");
+    container.appendChild(input);
+  }
+}
+
 function createInputBoxes() {
   let container = document.getElementById("inputBoxes");
   container.innerHTML = "";
   let randomWord = fruits[Math.floor(Math.random() * fruits.length)];
   console.log(randomWord);
-    for (let index = 0; index < randomWord.length; index++) {
-
-      let input = document.createElement("input");
-      container.appendChild(input);
-    }
-    return randomWord;
+  renderInputBoxes(randomWord, container);
+  return randomWord;
 }
 document.onload(createInputBoxes());
