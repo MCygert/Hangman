@@ -13,6 +13,9 @@ function getData() {
 
 getData().then((json) => (fruits = json.map((name) => name.name))).finally( () => createInputBoxes());
 function validate(target){
+  if (target.value === randomWord[target.indexLetter]) {
+    console.log("it's correcte")
+  }
 
 }
 function renderInputBoxes() {
@@ -22,7 +25,8 @@ function renderInputBoxes() {
     input.indexLetter = index;
     input.addEventListener("change", (event) => {
       console.log(event.target.indexLetter);
-      event.target.value;
+      console.log(event.target.value);
+      validate(event.target);
 
     })
     container.appendChild(input);
