@@ -3,3 +3,6 @@
     color: green;
     font-weight: bold;
 }
+.incorrectAnswer {
+    color: red;
+}

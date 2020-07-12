@@ -1,6 +1,7 @@
 let fruits = null;
 let randomWord;
 let container = null;
+let tries = 9;
 
 
 function getData() {
@@ -16,6 +17,11 @@ function validate(target){
   if (target.value === randomWord[target.indexLetter]) {
     target.classList.add("correctAnswer")
     console.log(target);
+  } else {
+    target.classList.add("incorrectAnswer")
+    tries--;
+    triesNode.nodeValue = tries;
+    console.log(tries)
   }
 
 }
@@ -41,3 +47,6 @@ function createInputBoxes() {
   renderInputBoxes();
   return randomWord;
 }
+
+let triesNode = document.createTextNode(tries.toString());
+document.getElementById("information").appendChild(triesNode)
