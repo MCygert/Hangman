@@ -40,6 +40,8 @@ function renderInputBoxes() {
   }
 }
 function createInputBoxes() {
+  tries = 9;
+  triesNode.nodeValue = tries.toString();
   container = document.getElementById("inputBoxes");
   container.innerHTML = "";
   randomWord = fruits[Math.floor(Math.random() * fruits.length)];
