@@ -1,0 +1,5 @@
+.correctAnswer {
+    pointer-events: none;
+    color: green;
+    font-weight: bold;
+}

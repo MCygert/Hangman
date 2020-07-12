@@ -14,7 +14,8 @@ function getData() {
 getData().then((json) => (fruits = json.map((name) => name.name))).finally( () => createInputBoxes());
 function validate(target){
   if (target.value === randomWord[target.indexLetter]) {
-    console.log("it's correcte")
+    target.classList.add("correctAnswer")
+    console.log(target);
   }
 
 }
