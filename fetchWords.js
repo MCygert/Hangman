@@ -13,18 +13,38 @@ function getData() {
 }
 
 getData().then((json) => (fruits = json.map((name) => name.name))).finally( () => createInputBoxes());
+
+function updateTries() {
+  tries--;
+  triesNode.nodeValue = tries;
+}
+
 function validate(target){
   if (target.value === randomWord[target.indexLetter]) {
-    target.classList.add("correctAnswer")
+    target.className = '';
+    target.classList.add("correctAnswer");
+    target.disabled = true;
     console.log(target);
+  } else if (randomWord.includes(target.value)) {
+    target.className = '';
+    target.classList.add("badPositionAnswer");
+    updateTries();
   } else {
-    target.classList.add("incorrectAnswer")
-    tries--;
-    triesNode.nodeValue = tries;
-    console.log(tries)
+    target.className = '';
+    target.classList.add("incorrectAnswer");
+    updateTries();
+    console.log(tries);
   }
 
 }
+
+function checkIfCorrectLetter(target) {
+  const alphabeticLetters = /^[A-Za-z]+$/;
+  if (!target.value.match(alphabeticLetters)) {
+    target.value = "";
+  }
+}
+
 function renderInputBoxes() {
 
   for (let index = 0; index < randomWord.length; index++) {
@@ -33,6 +53,7 @@ function renderInputBoxes() {
     input.addEventListener("change", (event) => {
       console.log(event.target.indexLetter);
       console.log(event.target.value);
+      checkIfCorrectLetter(event.target)
       validate(event.target);
 
     })

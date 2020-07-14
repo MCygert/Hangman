@@ -6,3 +6,6 @@
 .incorrectAnswer {
     color: red;
 }
+.badPositionAnswer {
+    color: orange;
+}
