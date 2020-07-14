@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Hangman</title>
-  </head>
-  <body>
-  <h1>Pick your fruit</h1>
-  <div id="inputBoxes"></div>
-  <h2>Generate new word.</h2>
-  <button onclick="createInputBoxes()"></button>
-  <div id="information"></div>
-  </body>
-  <script type="text/javascript" src="fetchWords.js"></script>
+</head>
+<body>
+<h1>Pick your fruit</h1>
+<div id="inputBoxes"></div>
+<div id="guessedLetters"></div>
+<div id="information">
+    <h2>Generate new word.</h2>
+    <button onclick="createInputBoxes()"></button>
+</div>
+</body>
+<script type="text/javascript" src="fetchWords.js"></script>
 </html>
