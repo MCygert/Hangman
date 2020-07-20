@@ -70,9 +70,22 @@ function renderInputBoxes() {
         input.addEventListener("change", (event) => {
             checkIfAlphabetLetter(event.target)
             validate(event.target);
-            addCorrectLetterToSpan(event.target)
+            addCorrectLetterToSpan(event.target);
         })
         inputContainer.appendChild(input);
+    }
+}
+
+function getHint() {
+    let inputBoxes = document.getElementById('inputBoxes').children;
+    for (let i = 0; i < inputBoxes.length; i++) {
+        if (inputBoxes[i].className === 'incorrectAnswer' ||
+            inputBoxes[i].className === 'badPositionAnswer' ||
+            inputBoxes[i].className === '') {
+            inputBoxes[i].innerHTML = randomWord[i];
+            inputBoxes[i].className = 'correctAnswer'
+            return null;
+        }
     }
 }
 
