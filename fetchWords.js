@@ -3,7 +3,7 @@ let randomWord;
 let inputContainer = null;
 let spanContainer = null;
 let tries = 9;
-
+let hintNumber = 3;
 
 function getData() {
 
@@ -78,13 +78,20 @@ function renderInputBoxes() {
 
 function getHint() {
     let inputBoxes = document.getElementById('inputBoxes').children;
-    for (let i = 0; i < inputBoxes.length; i++) {
-        if (inputBoxes[i].className === 'incorrectAnswer' ||
-            inputBoxes[i].className === 'badPositionAnswer' ||
-            inputBoxes[i].className === '') {
-            inputBoxes[i].innerHTML = randomWord[i];
-            inputBoxes[i].className = 'correctAnswer'
-            return null;
+    if (hintNumber <= 0) {
+        alert("You are out of hints")
+    } else {
+        for (let i = 0; i < inputBoxes.length; i++) {
+
+            if (inputBoxes[i].className === 'incorrectAnswer' ||
+                inputBoxes[i].className === 'badPositionAnswer' ||
+                inputBoxes[i].className === '') {
+                inputBoxes[i].value = randomWord[i];
+                inputBoxes[i].className = 'correctAnswer'
+                hintNumber--;
+                hintsNode.nodeValue = hintNumber.toString();
+                return null;
+            }
         }
     }
 }
@@ -111,4 +118,6 @@ function createSpanPlaces() {
 }
 
 let triesNode = document.createTextNode(tries.toString());
+let hintsNode = document.createTextNode(hintNumber.toString());
 document.getElementById("information").appendChild(triesNode)
+document.getElementById("information").appendChild(hintsNode)
