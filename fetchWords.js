@@ -97,6 +97,7 @@ function getHint() {
 }
 
 function createInputBoxes() {
+    hintNumber = 3;
     tries = 9;
     triesNode.nodeValue = tries.toString();
     inputContainer = document.getElementById("inputBoxes");
